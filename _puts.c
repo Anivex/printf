@@ -1,114 +1,35 @@
 #include "main.h"
 
-
 /**
- * _strlen - count length of format.
+ * _putchar - print character.
  *
- * @s: format.
+ * @c: char.
  *
- * Return: length of format.
+ * Return: 1.
  */
 
-int _strlen(const char *s)
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * _puts - prints string.
+ *
+ * @s: string.
+ *
+ * Return: number of character.
+ */
+int _puts(char *s)
 {
 	int i = 0;
 
 	if (!s)
-		return (-1);
+	{
+		_puts("(null)");
+		return (6);
+	}
 	while (s[i])
-		i++;
-
+		_putchar(s[i++]);
 	return (i);
-}
-
-int specifier(char c, va_list ap)
-{
-	int num = 0;
-
-	switch (c)
-	{
-		case 'c':
-			num += _putchar(va_arg(ap, int));
-			break;
-		case 's':
-			num += _puts(va_arg(ap, char *));
-			break;
-		case '%':
-			num += _putchar('%');
-			break;
-		case 'i':
-		case 'd':
-			num += _itoa(va_arg(ap, int));
-			break;
-		default:
-			num += _putchar('%');
-			num += _putchar(c);
-			break;
-	}
-
-	return (num);
-}
-
-int _itoa(int n)
-{
-	char *s, c;
-	int i = 0, rem, count = 0;
-
-	s = malloc(sizeof(char) * 11);
-	if (s == NULL)
-	{
-		return (0);
-	}
-	if (n < 0)
-	{
-		s[0] = '-';
-		n = n * (-1);
-	}
-	while (n != 0)
-	{
-		rem = n % 10;
-		n = n / 10;
-		c = '0' + rem;
-		s[10 - i] = c;
-		i++;
-		count++;
-	}
-	for (i = 0 ; i < 11; i++)
-        _putchar(s[i]);
-
-	return (count);
-}
-/**
- * _printf - is the C language function to do format-ted printing.
- *
- * @format: string.
- *
- * Return: number of character printed.
- */
-
-int _printf(const char *format, ...)
-{
-	va_list ap;
-	int i, len, numc = 0;
-
-	len = _strlen(format);
-	if (len == -1)
-		return (-1);
-	va_start(ap, format);
-	for (i = 0; i < len; i++)
-	{
-
-		if (format[i] == '%')
-		{
-			i++;
-			if (format[i])
-				numc += specifier(format[i], ap);
-			else
-				return (-1);
-		}
-		else
-			numc += _putchar(format[i]);
-	}
-	va_end(ap);
-	return (numc);
 }
