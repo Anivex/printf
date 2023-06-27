@@ -53,6 +53,30 @@ int _strlen(const char *s)
 	return (i);
 }
 
+int specifier(char c, va_list ap)
+{
+	int num = 0;
+
+	switch (c)
+	{
+		case 'c':
+			num += _putchar(va_arg(ap, int));
+			break;
+		case 's':
+			num += _puts(va_arg(ap, char *));
+			break;
+		case '%':
+			num += _putchar('%');
+			break;
+		default:
+			num += _putchar('%');
+			num += _putchar(c);
+			break;
+	}
+
+	return (num);
+}
+
 /**
  * _printf - is the C language function to do format-ted printing.
  *
@@ -60,6 +84,7 @@ int _strlen(const char *s)
  *
  * Return: number of character printed.
  */
+
 
 int _printf(const char *format, ...)
 {
@@ -77,24 +102,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i])
-			{
-				switch (format[i])
-				{
-					case 'c':
-						numc += _putchar(va_arg(ap, int));
-						break;
-					case 's':
-						numc += _puts(va_arg(ap, char *));
-						break;
-					case '%':
-						numc += _putchar('%');
-						break;
-					default:
-						numc += _putchar('%');
-						numc += _putchar(format[i]);
-						break;
-				}
-			}
+				numc += specifier(format[i], ap);
 			else
 				return (-1);
 		}
