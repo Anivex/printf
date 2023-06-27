@@ -49,14 +49,7 @@ int specifier(char c, va_list ap)
 	return (num);
 }
 
-/**
- * _printf - is the C language function to do format-ted printing.
- *
- * @format: string.
- *
- * Return: number of character printed.
- */
-int *_itoa(int n)
+int _itoa(int n)
 {
 	char *s, c;
 	int i = 0, rem, count = 0;
@@ -64,15 +57,13 @@ int *_itoa(int n)
 	s = malloc(sizeof(char) * 11);
 	if (s == NULL)
 	{
-		return (NULL);
+		return (0);
 	}
-
 	if (n < 0)
 	{
 		s[0] = '-';
 		n = n * (-1);
 	}
-
 	while (n != 0)
 	{
 		rem = n % 10;
@@ -83,10 +74,17 @@ int *_itoa(int n)
 		count++;
 	}
 	for (i = 0 ; i < 11; i++)
-       	_putchar(s[i]);
+        _putchar(s[i]);
 
 	return (count);
 }
+/**
+ * _printf - is the C language function to do format-ted printing.
+ *
+ * @format: string.
+ *
+ * Return: number of character printed.
+ */
 
 int _printf(const char *format, ...)
 {
