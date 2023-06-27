@@ -53,6 +53,15 @@ int _strlen(const char *s)
 	return (i);
 }
 
+/**
+ * specifier - give to each specifier their function.
+ *
+ * @c: character.
+ * @ap: the next argument in the parameter list.
+ *
+ * Return: number of character printed.
+ */
+
 int specifier(char c, va_list ap)
 {
 	int num = 0;
