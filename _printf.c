@@ -63,7 +63,6 @@ int _printf(const char *format, ...)
 	
 	if (len == -1)
 		return (-1);
-
 	va_start(ap, format);
 	for (i = 0; i < len; i++)
 	{
@@ -91,10 +90,7 @@ int _printf(const char *format, ...)
 
 		}
 		else
-		{
-			_putchar(format[i]);
-			numc++;
-		}
+			numc += _putchar(format[i]);
 	}
 	va_end(ap);
 	return (numc);
