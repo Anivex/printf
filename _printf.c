@@ -10,6 +10,7 @@
 int _strlen(const char *s)
 {
 	int i = 0;
+
 	if (!s)
 		return (-1);
 	while (s[i])
@@ -27,6 +28,7 @@ int _strlen(const char *s)
 int specifier(char c, va_list ap)
 {
 	int num = 0;
+
 	switch (c)
 	{
 		case 'c':
@@ -50,6 +52,13 @@ int specifier(char c, va_list ap)
 	return (num);
 }
 
+/**
+ * _itoa - convert and integer to string and printed.
+ *
+ * @n: number.
+ *
+ * Return: number of character
+ */
 int _itoa(int n)
 {
 	char *s, c;
@@ -75,7 +84,7 @@ int _itoa(int n)
 		count++;
 	}
 	for (i = 0 ; i < 11; i++)
-        _putchar(s[i]);
+		_putchar(s[i]);
 
 	return (count);
 }
@@ -92,6 +101,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i, len, numc = 0;
+
 	len = _strlen(format);
 	if (len == -1)
 		return (-1);
