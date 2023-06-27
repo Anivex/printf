@@ -56,20 +56,20 @@ int _strlen(const char *s)
 
 int _printf(const char *format, ...)
 {
-    va_list ap;
-    int i, len, numc = 0;
+	va_list ap;
+	int i, len, numc = 0;
 
-    va_start(ap, format);
+	va_start(ap, format);
 
-    for (i = 0, len = _strlen(format); i < len; i++)
-    {
-        if (format[i] == '%')
-        {
-            i++;
-            switch (format[i])
-            {
-                case 'c':
-                        numc += _putchar(va_arg(ap, int));
+	for (i = 0, len = _strlen(format); i < len; i++)
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			switch (format[i])
+			{
+				case 'c':
+					numc += _putchar(va_arg(ap, int));
                         break;
                 case 's':
                         numc += _puts(va_arg(ap, char *));
