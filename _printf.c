@@ -63,12 +63,12 @@ int _printf(const char *format, ...)
 	len = _strlen(format);
 	if (len == -1)
 		return (-1);
-	
+
 	va_start(ap, format);
 
 	for (i = 0; i < len; i++)
 	{
-		
+
 		if (format[i] == '%')
 		{
 			i++;
