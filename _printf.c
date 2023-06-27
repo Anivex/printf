@@ -71,6 +71,7 @@ int _itoa(int n)
 	}
 	if (n < 0)
 	{
+		count++;
 		s[0] = '-';
 		n = n * (-1);
 	}
