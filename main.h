@@ -12,6 +12,6 @@ int _putchar(char c);
 int _strlen(const char *s);
 int _printf(const char *format, ...);
 int specifier(char c, va_list ap);
-
+int _itoa(int n);
 
 #endif

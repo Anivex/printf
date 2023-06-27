@@ -1,37 +1,5 @@
 #include "main.h"
-/**
- * _putchar - print character.
- *
- * @c: char.
- *
- * Return: 1.
- */
 
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * _puts - prints string.
- *
- * @s: string.
- *
- * Return: number of character.
- */
-int _puts(char *s)
-{
-	int i = 0;
-
-	if (!s)
-	{
-		_puts("(null)");
-		return (6);
-	}
-	while (s[i])
-		_putchar(s[i++]);
-	return (i);
-}
 
 /**
  * _strlen - count length of format.
@@ -77,6 +45,10 @@ int specifier(char c, va_list ap)
 		case '%':
 			num += _putchar('%');
 			break;
+		case 'i':
+		case 'd':
+			num += _itoa(va_arg(ap, int));
+			break;
 		default:
 			num += _putchar('%');
 			num += _putchar(c);
@@ -86,6 +58,35 @@ int specifier(char c, va_list ap)
 	return (num);
 }
 
+int _itoa(int n)
+{
+	char *s, c;
+	int i = 0, rem, count = 0;
+
+	s = malloc(sizeof(char) * 11);
+	if (s == NULL)
+	{
+		return (0);
+	}
+	if (n < 0)
+	{
+		s[0] = '-';
+		n = n * (-1);
+	}
+	while (n != 0)
+	{
+		rem = n % 10;
+		n = n / 10;
+		c = '0' + rem;
+		s[10 - i] = c;
+		i++;
+		count++;
+	}
+	for (i = 0 ; i < 11; i++)
+        _putchar(s[i]);
+
+	return (count);
+}
 /**
  * _printf - is the C language function to do format-ted printing.
  *
@@ -93,7 +94,6 @@ int specifier(char c, va_list ap)
  *
  * Return: number of character printed.
  */
-
 
 int _printf(const char *format, ...)
 {
