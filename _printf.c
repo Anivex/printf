@@ -21,15 +21,6 @@ int _strlen(const char *s)
 	return (i);
 }
 
-/**
- * specifier - give to each specifier their function.
- *
- * @c: character.
- * @ap: the next argument in the parameter list.
- *
- * Return: number of character printed.
- */
-
 int specifier(char c, va_list ap)
 {
 	int num = 0;
@@ -83,7 +74,7 @@ int _itoa(int n)
 		count++;
 	}
 	for (i = 0 ; i < 11; i++)
-        	_putchar(s[i]);
+        _putchar(s[i]);
 
 	return (count);
 }
