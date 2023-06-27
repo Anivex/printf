@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * _strlen - count length of format.
  *
@@ -8,23 +7,26 @@
  *
  * Return: length of format.
  */
-
 int _strlen(const char *s)
 {
 	int i = 0;
-
 	if (!s)
 		return (-1);
 	while (s[i])
 		i++;
-
 	return (i);
 }
-
+/**
+ * specifier - give to each specifier their function.
+ *
+ * @c: character.
+ * @ap: the next argument in the parameter list.
+ *
+ * Return: number of character printed.
+ */
 int specifier(char c, va_list ap)
 {
 	int num = 0;
-
 	switch (c)
 	{
 		case 'c':
@@ -45,7 +47,6 @@ int specifier(char c, va_list ap)
 			num += _putchar(c);
 			break;
 	}
-
 	return (num);
 }
 
@@ -86,18 +87,17 @@ int _itoa(int n)
  * Return: number of character printed.
  */
 
+
 int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i, len, numc = 0;
-
 	len = _strlen(format);
 	if (len == -1)
 		return (-1);
 	va_start(ap, format);
 	for (i = 0; i < len; i++)
 	{
-
 		if (format[i] == '%')
 		{
 			i++;
