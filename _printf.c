@@ -74,6 +74,9 @@ int _printf(const char *format, ...)
 				case 's':
 					numc += _puts(va_arg(ap, char *));
 					break;
+				case '%':
+					numc += _putchar('%');
+					break;
 			}
 
 		}
