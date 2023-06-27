@@ -83,7 +83,7 @@ int _itoa(int n)
 		count++;
 	}
 	for (i = 0 ; i < 11; i++)
-        _putchar(s[i]);
+        	_putchar(s[i]);
 
 	return (count);
 }
