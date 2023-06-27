@@ -23,6 +23,9 @@ int _puts(char *s)
 {
 	int i = 0;
 
+	if (!s)
+		_puts("(null)");
+		return (6);
 	while (s[i])
 		_putchar(s[i++]);
 	return (i);
