@@ -24,9 +24,11 @@ int _puts(char *s)
 	int i = 0;
 
 	if (!s)
+    {
 		_puts("(null)");
 		return (6);
-	while (s[i])
+    }
+    while (s[i])
 		_putchar(s[i++]);
 	return (i);
 }
@@ -99,4 +101,3 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (numc);
 }
-
