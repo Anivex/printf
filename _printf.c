@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i, len, numc = 0;
-	
+
 	len = _strlen(format);
 	if (len == -1)
 		return (-1);
