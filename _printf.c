@@ -97,7 +97,6 @@ int _printf(const char *format, ...)
 			}
 			else
 				return (-1);
-
 		}
 		else
 			numc += _putchar(format[i]);
