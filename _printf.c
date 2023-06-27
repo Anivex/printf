@@ -75,6 +75,12 @@ int _itoa(int n)
 		s[0] = '-';
 		n = n * (-1);
 	}
+	else if (n == 0)
+	{
+		s[0] = '0';
+		count++;
+
+	}
 	while (n != 0)
 	{
 		rem = n % 10;
