@@ -36,6 +36,10 @@ int specifier(char c, va_list ap)
 		case '%':
 			num += _putchar('%');
 			break;
+		case 'i':
+		case 'd':
+			num += _itoa(va_arg(ap, int));
+			break;
 		default:
 			num += _putchar('%');
 			num += _putchar(c);
