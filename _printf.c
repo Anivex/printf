@@ -52,7 +52,37 @@ int specifier(char c, va_list ap)
  *
  * Return: number of character printed.
  */
+int *_itoa(int n)
+{
+	char *s, c;
+	int i = 0, rem, count = 0;
 
+	s = malloc(sizeof(char) * 11);
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+
+	if (n < 0)
+	{
+		s[0] = '-';
+		n = n * (-1);
+	}
+
+	while (n != 0)
+	{
+		rem = n % 10;
+		n = n / 10;
+		c = '0' + rem;
+		s[10 - i] = c;
+		i++;
+		count++;
+	}
+	for (i = 0 ; i < 11; i++)
+       	_putchar(s[i]);
+
+	return (count);
+}
 
 int _printf(const char *format, ...)
 {
