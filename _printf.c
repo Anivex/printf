@@ -39,7 +39,8 @@ int _puts(char *s)
 int _strlen(const char *s)
 {
 	int i = 0;
-
+	if (!s)
+		return (-1);
 	while (s[i])
 		i++;
 
@@ -59,10 +60,15 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, len, numc = 0;
 
+	len = _strlen(format);
+	if (len == -1)
+		return (-1);
+	
 	va_start(ap, format);
 
-	for (i = 0, len = _strlen(format); i < len; i++)
+	for (i = 0; i < len; i++)
 	{
+		
 		if (format[i] == '%')
 		{
 			i++;
