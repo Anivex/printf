@@ -65,7 +65,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(ap, format);
-
 	for (i = 0; i < len; i++)
 	{
 
@@ -97,8 +96,6 @@ int _printf(const char *format, ...)
 			numc++;
 		}
 	}
-
-
 	va_end(ap);
 	return (numc);
 }
