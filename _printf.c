@@ -89,6 +89,10 @@ int _printf(const char *format, ...)
 					case '%':
 						numc += _putchar('%');
 						break;
+					default:
+						numc += _putchar('%');
+						numc += _putchar(format[i]);
+						break;
 				}
 			}
 			else
