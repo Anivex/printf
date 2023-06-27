@@ -3,13 +3,13 @@
  * _putchar - print character.
  *
  * @c: char.
- * 
+ *
  * Return: 1.
  */
 
 int _putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -21,11 +21,11 @@ int _putchar(char c)
  */
 int _puts(char *s)
 {
-    int i = 0;
+	int i = 0;
 
-    while (s[i])
-        _putchar(s[i++]);
-    return (i);
+	while (s[i])
+		_putchar(s[i++]);
+	return (i);
 }
 
 /**
@@ -38,12 +38,12 @@ int _puts(char *s)
 
 int _strlen(const char *s)
 {
-    int i = 0;
+	int i = 0;
 
-    while (s[i])
-        i++;
+	while (s[i])
+		i++;
 
-    return (i);
+	return (i);
 }
 
 /**
@@ -70,22 +70,22 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					numc += _putchar(va_arg(ap, int));
-                        break;
-                case 's':
-                        numc += _puts(va_arg(ap, char *));
-                        break;
-            }
+					break;
+				case 's':
+					numc += _puts(va_arg(ap, char *));
+					break;
+			}
 
-        }
-        else
-        {
-            _putchar(format[i]);
-            numc++;
-        }
-    }
+		}
+		else
+		{
+			_putchar(format[i]);
+			numc++;
+		}
+	}
 
 
-    va_end(ap);
-    return numc;
+	va_end(ap);
+	return (numc);
 }
 
