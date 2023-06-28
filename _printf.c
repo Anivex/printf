@@ -92,7 +92,8 @@ int _itoa(int n)
 	}
 	for (i = 0 ; i < 11; i++)
 	{
-		s[i] ? _putchar(s[i]) : continue;
+		if (s[i])
+			_putchar(s[i]);
 	}
 	return (count);
 }
